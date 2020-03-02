@@ -12,9 +12,9 @@ practicing docker tutorial
  sudo apt update
  sudo apt install apt-transport-https ca-certificates curl software-properties-common
  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
- # Ubuntu 16.04
+ ## Ubuntu 16.04
  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
- # Ubuntu 18.04
+ ## Ubuntu 18.04
  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
  sudo apt update
  apt-cache policy docker-ce
@@ -31,15 +31,16 @@ practicing docker tutorial
  ```
  
 ### How to install nvidia-docker to use nvidia setting in dockers
+* [description link (1)](https://github.com/NVIDIA/nvidia-docker)
+* [description link (2)](https://www.quantumdl.com/entry/PyTorchTensorflow%EB%A5%BC-%EC%9C%84%ED%95%9C-Docker-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
  ```
- # in a host terminal
  distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
  curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
  curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
  sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
  sudo systemctl restart docker
  
- ## check the installation
+ ### check the installation
  docker run --rm --gpus all nvidia/cuda:10.1-base nvidia-smi
  ```
 
@@ -59,31 +60,33 @@ practicing docker tutorial
  docker pull pytorch/pytorch:1.3-cuda10.1-cudnn7-devel
  ```
 
+
+
+## Examples and Tips
 ### Example of docker run command
  ```
- # (1)
- docker run -it --rm -p 2000-2002:2000-2002 \
- --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
+ ### (1)
+ docker run -it --rm -p 2000-2002:2000-2002 --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
  -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
  --name ros-carla-01 \
  carla-ros-bridge:custom-01 \
  /bin/bash
  
- # (2)
+ ### (2)
  docker run -it --rm -p 2000:2000 --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
  -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
  --name pytorch-docker \
  pytorch/pytorch:1.3-cuda10.1-cudnn7-devel \
  /bin/bash
  
- # (3)
+ ### (3)
  docker run -it --rm -p 2000:2000 --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
  -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
  --name pytorch-docker \
  pytorch/pytorch:1.3-custom \
  /bin/bash
  
- # (4)
+ ### (4)
  docker run -it -p 2000:2000 --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
  -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
  -v $(pwd):/data \
@@ -91,7 +94,7 @@ practicing docker tutorial
  pytorch/pytorch:1.3-custom \
  /bin/bash
  
- # (5)
+ ### (5)
  docker run -it -p 2000:2000 --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
  -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
  -v $(pwd)/home/pytorch-home:/home/torch -v $(pwd)/dataset/data_odometry_velodyne:/data \
@@ -101,8 +104,7 @@ practicing docker tutorial
 
  ```
 
-### Delete docker <none> image
-
+### Delete <none> docker <none> image
 ```
  docker rmi $(docker images -f "dangling=true" -q)
  ```
