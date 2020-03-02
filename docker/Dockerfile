@@ -16,9 +16,9 @@ RUN apt-get install -y wget gedit eog
 
 
 RUN pip install protobuf \
-				matplotlib \
-				future \
-				scipy
+                matplotlib \
+                future \
+                scipy
 
 
 ##### Set the system configuration
