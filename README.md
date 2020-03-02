@@ -47,7 +47,7 @@ practicing docker tutorial
 ### How to install 'ROS docker image'
 * [description link](http://wiki.ros.org/docker/Tutorials/Docker)
 * [docker hub](https://hub.docker.com/)
-* [ROS 1.3 docker image](https://registry.hub.docker.com/_/ros/?tab=tags)
+* [ROS docker image](https://registry.hub.docker.com/_/ros/?tab=tags)
  ```
  docker pull ros:kinetic-ros-base-xenial
  ```
@@ -60,6 +60,75 @@ practicing docker tutorial
  docker pull pytorch/pytorch:1.3-cuda10.1-cudnn7-devel
  ```
 
+## Command Practice
+[easy tutorial with docker (1)](https://tecadmin.net/install-docker-on-ubuntu/), [easy tutorial with docker (2)](http://pyrasis.com/Docker/Docker-HOWTO)
+### docker images
+* check installed images
+ ```
+ docker images
+ ```
+### docker pull
+* download images from [docker hub](https://hub.docker.com/)
+ ```
+ docker search ubuntu
+ docker pull ubuntu  # default tag: latest
+ ## OR other version of ubuntu
+ docker pull ubuntu:xenial
+ ```
+### docker ps
+* check existing containers
+ ```
+ docker ps -a
+ ```
+* check only running containers
+ ```
+ docker ps
+ ```
+### docker run
+* launch new container with image
+ ```
+ # docker run <options> <image> <command>
+ docker run -it --rm ubuntu /bin/bash
+ 
+ # in another host terminal
+ docker ps -a
+ docker ps
+ 
+ docker run -it --name hello ubuntu /bin/bash
+ ```
+### docker start/stop/attach/restart
+* docker can be run in back/foreground
+ ```
+ # docker start/stop/attach/restart <container>
+ docker start hello   ## if you run this command, you can run docker container in background
+ docker attach hello  ## connecting standard input(stdin) and standard output(stdout) to a running container
+ ```
+### docker exec
+* it can execute a command inside a container from outside
+* typically used to connect another terminal to a container
+ ```
+ docker exec -it hello /bin/bash
+ ```
+### docker inspect
+* check container information (ip, port, etc.)
+ ```
+ # docker inspect <container>
+ docker inspect hello
+ ```
+### docker cp
+* Copy file to/from container
+ ```
+ # docker cp <container>:<docker-path> <host-path>
+ # docker cp <host-path> <container>:<docker-path>
+ docker cp hello:/home ./
+ docker cp ./ hello:/home
+ ```
+### docker commit
+* create an image of changes made to a container
+ ```
+ # docker commit <container> <repository>/<image>:<tag>
+ docker commit hello jjimin/ubuntu:1.0
+ ```
 
 
 ## Examples and Tips
@@ -104,7 +173,7 @@ practicing docker tutorial
 
  ```
 
-### Delete <none> docker <none> image
+### Delete 'none' docker image
 ```
  docker rmi $(docker images -f "dangling=true" -q)
  ```
