@@ -118,10 +118,11 @@ practicing docker tutorial
 ### docker cp
 * Copy file to/from container
  ```
+ touch hello.txt
  # docker cp <container>:<docker-path> <host-path>
  # docker cp <host-path> <container>:<docker-path>
- docker cp hello:/home ./
- docker cp ./ hello:/home
+ docker cp hello:/home ./hello.txt
+ docker cp ./hello.txt hello:/home
  ```
 ### docker commit
 * create an image of changes made to a container
