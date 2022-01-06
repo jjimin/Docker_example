@@ -55,7 +55,8 @@ how to install and show examples of using various docker images
 
 ## Command Practice and Tips for using docker
 ### Commands
-[easy tutorial with docker (1)](https://tecadmin.net/install-docker-on-ubuntu/), [easy tutorial with docker (2)](http://pyrasis.com/Docker/Docker-HOWTO)
+* [easy tutorial with docker (1)](https://tecadmin.net/install-docker-on-ubuntu/)
+* [easy tutorial with docker (2)](http://pyrasis.com/Docker/Docker-HOWTO)
 #### docker images
 * check installed images
  ```
