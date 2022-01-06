@@ -39,6 +39,7 @@ how to install and show examples of using various docker images
 ### How to install nvidia-docker to use nvidia setting in dockers
 * [description link (1)](https://github.com/NVIDIA/nvidia-docker)
 * [description link (2)](https://www.quantumdl.com/entry/PyTorchTensorflow%EB%A5%BC-%EC%9C%84%ED%95%9C-Docker-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
+* [description link (3)](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
  ```
  distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
  curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
