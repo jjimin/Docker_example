@@ -43,13 +43,15 @@ jjimin/carla-ros:<tag_name> /bin/bash
 ```
 
 ## How to run server and bridge in CARLA-ROS container
+* [description link](https://carla.readthedocs.io/projects/ros-bridge/en/latest/ros_installation_ros2/#run-the-ros-bridge)
+
 
 Use alias command to run the carla server.
 ```
 server-run-onscreen # Use 'server-run-offscreen' for off-screen mode
 ```
 
-In another terminal, start the bridge for ROS2. You can run one of the two options below:
+In another terminal, start the bridge for ROS2. You can run one of the two options below: 
 ```
 # Option 1, start the basic ROS bridge package
 ros2 launch carla_ros_bridge carla_ros_bridge.launch.py
