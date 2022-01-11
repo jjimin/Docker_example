@@ -128,8 +128,8 @@ how to install and show examples of using various docker images
 ### Tips
 #### how to delete 'none' docker image
 ```
- docker rmi $(docker images -f "dangling=true" -q)
- ```
+docker rmi $(docker images -f "dangling=true" -q)
+```
 
 
 
