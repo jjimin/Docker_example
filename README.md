@@ -154,41 +154,10 @@ how to install and show examples of using various docker images
  
 ### Example of docker RUN command
  ```
- ### (1)
- docker run -it --rm -p 2000-2002:2000-2002 --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
- -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
- --name ros-carla-01 \
- carla-ros-bridge:custom-01 \
- /bin/bash
- 
- ### (2)
- docker run -it --rm -p 2000:2000 --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
- -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
- --name pytorch-docker \
- pytorch/pytorch:1.3-cuda10.1-cudnn7-devel \
- /bin/bash
- 
- ### (3)
- docker run -it --rm -p 2000:2000 --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
- -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
- --name pytorch-docker \
- pytorch/pytorch:1.3-custom \
- /bin/bash
- 
- ### (4)
- docker run -it -p 2000:2000 --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
+ docker run -it -p 2000-2002:2000-2002 --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
  -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
  -v $(pwd):/data \
  --name pytorch-docker \
  pytorch/pytorch:1.3-custom \
  /bin/bash
- 
- ### (5)
- docker run -it -p 2000:2000 --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
- -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
- -v $(pwd)/home/pytorch-home:/home/torch -v $(pwd)/dataset/data_odometry_velodyne:/data \
- --name pytorch-docker-01 \
- jjimin/pytorch:1.3-5.0 \
- /bin/bash
-
  ```
