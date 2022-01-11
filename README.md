@@ -138,7 +138,6 @@ how to install and show examples of using various docker images
 
 ### How to install 'ROS docker image'
 * [description link](http://wiki.ros.org/docker/Tutorials/Docker)
-* [docker hub](https://hub.docker.com/)
 * [ROS docker image](https://registry.hub.docker.com/_/ros/?tab=tags)
  ```
  docker pull ros:kinetic-ros-base-xenial
@@ -146,18 +145,18 @@ how to install and show examples of using various docker images
  
 ### How to install 'pyTorch 1.3 docker image'
 * [description link](https://www.quantumdl.com/entry/PyTorchTensorflow%EB%A5%BC-%EC%9C%84%ED%95%9C-Docker-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
-* [docker hub](https://hub.docker.com/)
 * [pytorch 1.3 docker image](https://hub.docker.com/r/pytorch/pytorch/tags?page=1&name=1.3)
  ```
  docker pull pytorch/pytorch:1.3-cuda10.1-cudnn7-devel
  ```
- 
-### Example of docker RUN command
+  
+### How to install and use 'CARLA-ROS docker image'
+* [description link](https://www.quantumdl.com/entry/PyTorchTensorflow%EB%A5%BC-%EC%9C%84%ED%95%9C-Docker-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
+* [CARLA-ROS docker image](https://hub.docker.com/r/jjimin/carla-ros/tags)
  ```
- docker run -it -p 2000-2002:2000-2002 --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
+ docker pull jjimin/carla-ros:18.04-foxy-0.9.11_v1.0
+ docker run -it --rm --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
  -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
- -v $(pwd):/data \
- --name pytorch-docker \
- pytorch/pytorch:1.3-custom \
- /bin/bash
+ jjimin/carla-ros:18.04-foxy-0.9.11_v1.0 /bin/bash
  ```
+
