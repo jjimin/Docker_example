@@ -154,7 +154,10 @@ how to install and show examples of using various docker images
 * [description link](https://www.quantumdl.com/entry/PyTorchTensorflow%EB%A5%BC-%EC%9C%84%ED%95%9C-Docker-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
 * [CARLA-ROS docker image](https://hub.docker.com/r/jjimin/carla-ros/tags)
  ```
+ # download the image
  docker pull jjimin/carla-ros:18.04-foxy-0.9.11_v1.0
+ 
+ # create a container with the image
  docker run -it --rm --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
  -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
  jjimin/carla-ros:18.04-foxy-0.9.11_v1.0 /bin/bash
