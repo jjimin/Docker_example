@@ -23,7 +23,7 @@ Select a tag from one of the versions below.
    * carla 0.9.11
    * ros foxy
    * carla-ros-bridge 0.9.11
-* `20.04-foxy-0.9.13_v1.0`
+* `20.04-foxy-0.9.13_v1.0` (**recommended**)
    * ubuntu 20.04
    * carla 0.9.13
    * ros foxy
