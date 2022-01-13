@@ -131,6 +131,21 @@ how to install and show examples of using various docker images
 docker rmi $(docker images -f "dangling=true" -q)
 ```
 
+#### how to use `sudo` and added user
+```
+# example with ROS image
+# Shell (1)
+docker run --user root --name <container-name> ros:foxy-ros-base /bin/bash
+# inside of container
+apt install sudo
+useradd --user-group --system --create-home --no-log-init --shell /bin/bash <user-name>
+echo "<user-name>:<user-name>" | chpasswd && adduser <user-name> sudo
+```
+```
+# Shell (2)
+# outside of container
+docker commit <container-name> <new-image-name>
+```
 
 
 
