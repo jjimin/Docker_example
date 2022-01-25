@@ -159,6 +159,16 @@ docker run --rm --user <user-name> --workdir /home/<user-name> --name <container
 docker commit <container-name> <new-image-name>
 ```
 
+### how to install VS-Code
+```
+sudo apt update
+sudo apt install software-properties-common apt-transport-https wget
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt update
+sudo apt install code
+```
+
 
 ## Examples of using various docker images
 
