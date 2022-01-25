@@ -135,7 +135,7 @@ docker rmi $(docker images -f "dangling=true" -q)
 ```
 # example with ROS image
 # Shell (1)
-docker run --user root --name <container-name> ros:foxy-ros-base /bin/bash
+docker run --rm --user root --name <container-name> ros:foxy-ros-base /bin/bash
 # inside of container
 apt install sudo
 useradd --user-group --system --create-home --no-log-init --shell /bin/bash <user-name>
@@ -146,7 +146,18 @@ echo "<user-name>:<user-name>" | chpasswd && adduser <user-name> sudo
 # outside of container
 docker commit <container-name> <new-image-name>
 ```
-
+```
+# Shell (1)
+# inside of container
+exit
+# outside of container
+docker run --rm --user <user-name> --workdir /home/<user-name> --name <container-name> <new-image-name> /bin/bash
+```
+```
+# Shell (2)
+# outside of container
+docker commit <container-name> <new-image-name>
+```
 
 
 ## Examples of using various docker images
@@ -172,8 +183,8 @@ docker commit <container-name> <new-image-name>
  docker pull jjimin/carla-ros:18.04-foxy-0.9.11_v1.0
  
  # create a container with the image
- docker run -it --rm --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
- -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
+ docker run -it --rm --privileged --net=host --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
+ -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev/shm:/dev/shm -e DISPLAY=unix$DISPLAY \
  jjimin/carla-ros:18.04-foxy-0.9.11_v1.0 /bin/bash
  ```
 
