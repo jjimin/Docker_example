@@ -193,8 +193,10 @@ sudo apt install code
  docker pull jjimin/carla-ros:18.04-foxy-0.9.11_v1.0
  
  # create a container with the image
- docker run -it --rm --privileged --net=host --gpus all -e NVIDIA_VISIBLE_DEVICES=0 \
+ docker run -it --rm --privileged --net=host \
+ --runtime=nvidia --gpus all -e NVIDIA_VISIBLE_DEVICES=0 -e NVIDIA_DRIVER_CAPABILITIES=all -e QT_X11_NO_MITSHM=1 \
  -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev/shm:/dev/shm -e DISPLAY=unix$DISPLAY \
+ -v ~/Data:/data --name test-01 \
  jjimin/carla-ros:18.04-foxy-0.9.11_v1.0 /bin/bash
  ```
 
