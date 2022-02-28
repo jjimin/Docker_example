@@ -3,7 +3,8 @@ how to install and show examples of using various docker images
 
 ## Installation
 ### How to install 'Docker-ce'
-* [description link](https://www.quantumdl.com/entry/PyTorchTensorflow%EB%A5%BC-%EC%9C%84%ED%95%9C-Docker-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
+* [description link (1)](https://docs.docker.com/engine/install/ubuntu/)
+* [description link (2)](https://www.quantumdl.com/entry/PyTorchTensorflow%EB%A5%BC-%EC%9C%84%ED%95%9C-Docker-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
    - [what are differences between CE and EE](https://nobase-dev.tistory.com/34) (CE: community edition, EE: enterprise edition)
  
  Install docker
