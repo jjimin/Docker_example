@@ -51,7 +51,7 @@ how to install and show examples of using various docker images
  sudo systemctl restart docker
  
  ### check the installation
- docker run --rm --gpus all nvidia/cuda:10.1-base nvidia-smi
+ docker run --rm --gpus all nvidia/cuda:11.2.2-base nvidia-smi
  ```
 
 ## Command Practice and Tips for using docker
